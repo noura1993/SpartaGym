@@ -27,5 +27,5 @@ CREATE TABLE sparta_classes (
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    sparta_classes_id INT REFERENCES sparta_classes(id) ON DELETE CASCADE
+    sparta_class_id INT REFERENCES sparta_classes(id) ON DELETE CASCADE
 );
