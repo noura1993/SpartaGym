@@ -64,4 +64,10 @@ class SpartaClass
         return sparta_class_data.map{ |sparta_class| SpartaClass.new(sparta_class) }
     end
 
+    def self.all()
+        sql = "SELECT * FROM sparta_classes;"
+        sparta_classes = SqlRunner.run(sql)
+        return SpartaClass.map(sparta_classes)
+    end
+
 end
