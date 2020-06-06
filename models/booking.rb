@@ -42,4 +42,10 @@ class Booking
         return booking_data.map{ |booking| Booking.new(booking) }
     end
 
+    def self.all()
+        sql = "SELECT * FROM bookings;"
+        bookings = SqlRunner.run(sql)
+        return Booking.map(bookings)
+    end
+
 end
