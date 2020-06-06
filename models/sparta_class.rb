@@ -60,4 +60,8 @@ class SpartaClass
         return SpartaClass.new(sparta_class_record)
     end
 
+    def self.map(sparta_class_data)
+        return sparta_class_data.map{ |sparta_class| SpartaClass.new(sparta_class) }
+    end
+
 end
