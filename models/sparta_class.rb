@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./member')
 
 class SpartaClass
 
@@ -8,12 +9,21 @@ class SpartaClass
     def initialize(options)
         @id = options['id'].to_i if options['id']
         @class_name = options['class_name']
-        @capacity = options['capacity']
+        @capacity = options['capacity'].to_i
         @trainer_name = options['trainer_name']
         @room = options['room']
         @day = options['day']
         @time = options['time']
         @status = options['status']
+    end
+
+    def book_class(member)
+        return "Sorry, class is full" if @capacity == 0 
+        @capacity -= 1
+        update()
+        new_booking = Booking.new({'member_id' => member.id, 'sparta_class_id' => @id})
+        new_booking.save()
+        return "Booking class done"
     end
 
     def members()
