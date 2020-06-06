@@ -1,6 +1,7 @@
 require('pry')
 require_relative('../models/member')
 require_relative('../models/sparta_class')
+require_relative('../models/booking')
 
 member1 = Member.new({ 
     'title' => 'Mr',
@@ -36,6 +37,7 @@ member3 = Member.new({
 member3.save()
 
 
+
 sparta_class1 = SpartaClass.new({ 
     'class_name' => 'Yoga',
     'capacity' => '10',
@@ -69,6 +71,25 @@ sparta_class3 = SpartaClass.new({
 })
 sparta_class3.save()
 
+
+
+booking1 = Booking.new({ 
+    'member_id' => member3.id,
+    'sparta_class_id' => sparta_class1.id
+})
+booking1.save()
+
+booking2 = Booking.new({ 
+    'member_id' => member1.id,
+    'sparta_class_id' => sparta_class3.id
+})
+booking2.save()
+
+booking3 = Booking.new({ 
+    'member_id' => member2.id,
+    'sparta_class_id' => sparta_class2.id
+})
+booking3.save()
 
 binding.pry
 
