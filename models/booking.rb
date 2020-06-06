@@ -11,4 +11,14 @@ class Booking
         @sparta_class_id = options['sparta_class_id'].to_i
     end
 
+    def save()
+        sql = "INSERT INTO bookings 
+        (member_id, sparta_class_id) 
+        VALUES 
+        ($1, $2) 
+        RETURNING id;"
+        values = [@member_id, @sparta_class_id]
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i
+    end
+
 end
