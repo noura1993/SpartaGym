@@ -38,4 +38,19 @@ class SpartaClass
         @id = SqlRunner.run(sql, values)[0]['id'].to_i
     end
 
+    def update()
+        sql = "UPDATE sparta_classes SET 
+        class_name = $1, 
+        capacity = $2,  
+        trainer_name = $3,
+        room = $4,
+        day = $5,
+        time = $6,
+        status = $7
+        WHERE id = $8;"
+        values = [@class_name, @capacity, @trainer_name, @room, @day, @time, @status, @id]
+        SqlRunner.run(sql, values)
+    end
+
+
 end
