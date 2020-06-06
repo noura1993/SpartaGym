@@ -7,8 +7,8 @@ CREATE TABLE members (
     title VARCHAR(5),
     first_name VARCHAR(255),
     surname VARCHAR(255),
-    mobile_number VARCHAR(20),
-    email_address VARCHAR(255),
+    mobile VARCHAR(20),
+    email VARCHAR(255),
     status VARCHAR(255),
     membership VARCHAR(255)
 );

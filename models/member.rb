@@ -10,8 +10,8 @@ class Member
         @title = options['title']
         @first_name = options['first_name']
         @surname = options['surname']
-        @mobile_number = options['mobile_number']
-        @email_address = options['email_address']
+        @mobile = options['mobile']
+        @email = options['email']
         @status = options['status']
         @membership = options['membership']
     end
@@ -21,8 +21,8 @@ class Member
         (title, 
         first_name,
         surname,
-        mobile_number,
-        email_address,
+        mobile,
+        email,
         status,
         membership) 
         VALUES 
@@ -34,7 +34,7 @@ class Member
         $6,
         $7) 
         RETURNING id;"
-        values = [@title, @first_name, @surname, @mobile_number, @email_address, @status, @membership]
+        values = [@title, @first_name, @surname, @mobile, @email, @status, @membership]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i
     end
 
