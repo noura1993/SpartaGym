@@ -47,8 +47,7 @@ sparta_class1 = SpartaClass.new({
     'capacity' => '10',
     'trainer_name' => 'Lily',
     'room' => 'E40',
-    'date' => '2020-06-23',
-    'time' => '07:00',
+    'date_time' => '2020-06-23 07:00',
     'status' => 'Active' 
 })
 sparta_class1.save()
@@ -58,8 +57,7 @@ sparta_class2 = SpartaClass.new({
     'capacity' => '20',
     'trainer_name' => 'Nancy',
     'room' => 'X30',
-    'date' => '2020-06-15',
-    'time' => '18:00', 
+    'date_time' => '2020-06-15 18:00', 
     'status' => 'Deactivated'
 })
 sparta_class2.save()
@@ -69,8 +67,7 @@ sparta_class3 = SpartaClass.new({
     'capacity' => '15',
     'trainer_name' => 'Tom',
     'room' => 'Z20',
-    'date' => '2020-05-18',
-    'time' => '08:00', 
+    'date_time' => '2020-05-18 08:00', 
     'status' => 'Active' 
 })
 sparta_class3.save()

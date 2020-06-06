@@ -1,10 +1,11 @@
+require('date')
 require_relative('../db/sql_runner')
 require_relative('./member')
 
 class SpartaClass
 
     attr_reader :id
-    attr_accessor :class_name, :capacity, :trainer_name, :room, :date, :time, :status
+    attr_accessor :class_name, :capacity, :trainer_name, :room, :date_time, :status
 
     def initialize(options)
         @id = options['id'].to_i if options['id']
@@ -12,8 +13,7 @@ class SpartaClass
         @capacity = options['capacity'].to_i
         @trainer_name = options['trainer_name']
         @room = options['room']
-        @date = options['date']
-        @time = options['time'][0..4]
+        @date_time = options['date_time']
         @status = options['status']
     end
 
@@ -49,8 +49,7 @@ class SpartaClass
         capacity,
         trainer_name,
         room,
-        date,
-        time,
+        date_time,
         status) 
         VALUES 
         ($1, 
@@ -58,10 +57,9 @@ class SpartaClass
         $3,
         $4, 
         $5,
-        $6,
-        $7) 
+        $6) 
         RETURNING id;"
-        values = [@class_name, @capacity, @trainer_name, @room, @date, @time, @status]
+        values = [@class_name, @capacity, @trainer_name, @room, @date_time, @status]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i
     end
 
@@ -71,11 +69,10 @@ class SpartaClass
         capacity = $2,  
         trainer_name = $3,
         room = $4,
-        date = $5,
-        time = $6,
-        status = $7
-        WHERE id = $8;"
-        values = [@class_name, @capacity, @trainer_name, @room, @date, @time, @status, @id]
+        date_time = $5,
+        status = $6
+        WHERE id = $7;"
+        values = [@class_name, @capacity, @trainer_name, @room, @date_time, @status, @id]
         SqlRunner.run(sql, values)
     end
 
@@ -91,9 +88,13 @@ class SpartaClass
         return sparta_class_data.map{ |sparta_class| SpartaClass.new(sparta_class) }
     end
 
-    def self.all()
-        sql = "SELECT * FROM sparta_classes;"
-        sparta_classes = SqlRunner.run(sql)
+    def self.upcoming_classes()
+        current_date_time = DateTime.now
+        today = current_date_time.strftime("%Y/%m/%d %H:%M")
+
+        sql = "SELECT * FROM sparta_classes WHERE date_time >= $1;"
+        values = [today]
+        sparta_classes = SqlRunner.run(sql, values)
         return SpartaClass.map(sparta_classes)
     end
 
