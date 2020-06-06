@@ -16,4 +16,27 @@ class Member
         @membership = options['membership']
     end
 
+    def save()
+        sql = "INSERT INTO members 
+        (title, 
+        first_name,
+        surname,
+        mobile_number,
+        email_address,
+        status,
+        membership) 
+        VALUES 
+        ($1, 
+        $2,
+        $3,
+        $4, 
+        $5,
+        $6,
+        $7) 
+        RETURNING id;"
+        values = [@title, @first_name, @surname, @mobile_number, @email_address, @status, @membership]
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i
+    end
+
+
 end
