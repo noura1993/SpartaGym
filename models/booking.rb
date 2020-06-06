@@ -21,4 +21,14 @@ class Booking
         @id = SqlRunner.run(sql, values)[0]['id'].to_i
     end
 
+    def update()
+        sql = "UPDATE bookings SET 
+        member_id = $1, 
+        sparta_class_id = $2
+        WHERE id = $3;"
+        values = [@member_id, @sparta_class_id, @id]
+        SqlRunner.run(sql, values)
+    end
+
+
 end
