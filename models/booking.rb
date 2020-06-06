@@ -38,5 +38,8 @@ class Booking
         return Booking.new(booking_record)
     end
 
+    def self.map(booking_data)
+        return booking_data.map{ |booking| Booking.new(booking) }
+    end
 
 end
