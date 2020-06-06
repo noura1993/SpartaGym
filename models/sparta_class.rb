@@ -16,4 +16,26 @@ class SpartaClass
         @status = options['status']
     end
 
+    def save()
+        sql = "INSERT INTO sparta_classes 
+        (class_name, 
+        capacity,
+        trainer_name,
+        room,
+        day,
+        time,
+        status) 
+        VALUES 
+        ($1, 
+        $2,
+        $3,
+        $4, 
+        $5,
+        $6,
+        $7) 
+        RETURNING id;"
+        values = [@class_name, @capacity, @trainer_name, @room, @day, @time, @status]
+        @id = SqlRunner.run(sql, values)[0]['id'].to_i
+    end
+
 end
