@@ -64,4 +64,10 @@ class Member
         return member_data.map{ |member| Member.new(customer) }
     end
 
+    def self.all()
+        sql = "SELECT * FROM members;"
+        members = SqlRunner.run(sql)
+        return Member.map(members)
+    end
+
 end
