@@ -18,7 +18,13 @@ class SpartaClass
     end
 
     def book_class(member)
+        return "Sorry, class is deactivated" if @status == 'Deactivated'
+        return "Sorry, member is deactivated" if member.status == 'Deactivated'
         return "Sorry, class is full" if @capacity == 0 
+        time = @date_time[11..15]
+        if(member.membership == 'Standard' && time >= '20:00')
+            return "This time is only for Premium membership"
+        end
         @capacity -= 1
         update()
         new_booking = Booking.new({'member_id' => member.id, 'sparta_class_id' => @id})

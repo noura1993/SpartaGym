@@ -47,7 +47,7 @@ sparta_class1 = SpartaClass.new({
     'capacity' => '10',
     'trainer_name' => 'Lily',
     'room' => 'E40',
-    'date_time' => '2020-06-23 07:00',
+    'date_time' => '2020-06-23 20:00',
     'status' => 'Active' 
 })
 sparta_class1.save()
@@ -92,6 +92,7 @@ booking3 = Booking.new({
 })
 booking3.save()
 
+sparta_class1.book_class(member3)
 binding.pry
 
 nil
