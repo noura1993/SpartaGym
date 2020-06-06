@@ -16,6 +16,17 @@ class SpartaClass
         @status = options['status']
     end
 
+    def members()
+        sql = "SELECT members.* 
+        FROM members
+        INNER JOIN bookings
+        ON members.id = bookings.member_id
+        WHERE sparta_class_id = $1;"
+        values = [@id]
+        members_records = SqlRunner.run(sql, values)
+        return Member.map(members_records)
+    end
+
     def save()
         sql = "INSERT INTO sparta_classes 
         (class_name, 
