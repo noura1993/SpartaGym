@@ -30,9 +30,9 @@ class Booking
         SqlRunner.run(sql, values)
     end
 
-    def delete()
-        sql = "DELETE FROM bookings WHERE id = $1;"
-        values = [@id]
+    def self.delete(member_id, sparta_class_id)
+        sql = "DELETE FROM bookings WHERE member_id = $1 AND sparta_class_id = $2;"
+        values = [member_id, sparta_class_id]
         SqlRunner.run(sql, values)
     end
 
