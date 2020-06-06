@@ -26,6 +26,12 @@ class SpartaClass
         return "Booking class done"
     end
 
+    def remove_member(member)
+        @capacity += 1
+        update()
+        Booking.delete(member.id, @id)
+    end
+
     def members()
         sql = "SELECT members.* 
         FROM members
