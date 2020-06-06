@@ -52,4 +52,12 @@ class Member
         SqlRunner.run(sql, values)
     end
 
+    def self.find(id)
+        sql = 'SELECT * FROM members WHERE id = $1;'
+        values = [id]
+        member_record = SqlRunner.run(sql, values).first()
+        return nil if member_record == nil
+        return Member.new(member_record)
+    end
+
 end
