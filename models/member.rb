@@ -1,5 +1,5 @@
 require_relative('../db/sql_runner')
-
+require_relative('./sparta_class')
 class Member
 
     attr_reader :id
@@ -14,6 +14,17 @@ class Member
         @email = options['email']
         @status = options['status']
         @membership = options['membership']
+    end
+
+    def sparta_classes()
+        sql = "SELECT sparta_classes.* 
+        FROM sparta_classes
+        INNER JOIN bookings
+        ON sparta_classes.id = bookings.sparta_class_id
+        WHERE member_id = $1;"
+        values = [@id]
+        sparta_classes_records = SqlRunner.run(sql, values)
+        return SpartaClass.map(sparta_classes_records)
     end
 
     def save()
