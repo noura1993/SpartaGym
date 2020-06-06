@@ -70,4 +70,9 @@ class SpartaClass
         return SpartaClass.map(sparta_classes)
     end
 
+    def self.delete_all()
+        sql = "DELETE FROM sparta_classes;"
+        SqlRunner.run(sql)
+    end
+
 end
