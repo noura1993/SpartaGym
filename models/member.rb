@@ -60,4 +60,8 @@ class Member
         return Member.new(member_record)
     end
 
+    def self.map(member_data)
+        return member_data.map{ |member| Member.new(customer) }
+    end
+
 end
