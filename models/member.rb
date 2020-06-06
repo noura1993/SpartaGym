@@ -41,7 +41,7 @@ class Member
     def update()
         sql = "UPDATE members SET 
         title = $1, 
-        first_names = $2,  
+        first_name = $2,  
         surname = $3,
         mobile = $4,
         email = $5,
@@ -50,6 +50,13 @@ class Member
         WHERE id = $8;"
         values = [@title, @first_name, @surname, @mobile, @email, @status, @membership, @id]
         SqlRunner.run(sql, values)
+    end
+
+    def self.search(first_name = '', surname = '', mobile = '')
+        sql = 'SELECT * FROM members WHERE first_name LIKE $1 AND surname LIKE $2 AND mobile LIKE $3;'
+        values = ["%#{first_name}%", "%#{surname}%", "%#{mobile}%"]
+        members_records = SqlRunner.run(sql, values)
+        return Member.map(members_records)
     end
 
     def self.find(id)
@@ -61,7 +68,7 @@ class Member
     end
 
     def self.map(member_data)
-        return member_data.map{ |member| Member.new(customer) }
+        return member_data.map{ |member| Member.new(member) }
     end
 
     def self.all()
