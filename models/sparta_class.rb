@@ -52,5 +52,12 @@ class SpartaClass
         SqlRunner.run(sql, values)
     end
 
+    def self.find(id)
+        sql = 'SELECT * FROM sparta_classes WHERE id = $1;'
+        values = [id]
+        sparta_class_record = SqlRunner.run(sql, values).first()
+        return nil if sparta_class_record == nil
+        return SpartaClass.new(sparta_class_record)
+    end
 
 end
