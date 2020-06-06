@@ -19,8 +19,8 @@ CREATE TABLE sparta_classes (
     capacity INT, 
     trainer_name VARCHAR(255),
     room VARCHAR(20),
-    day VARCHAR(20),
-    time VARCHAR(5),
+    date DATE,
+    time TIME,
     status VARCHAR(15)
 );
 

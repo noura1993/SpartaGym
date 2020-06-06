@@ -4,7 +4,7 @@ require_relative('./member')
 class SpartaClass
 
     attr_reader :id
-    attr_accessor :class_name, :capacity, :trainer_name, :room, :day, :time, :status
+    attr_accessor :class_name, :capacity, :trainer_name, :room, :date, :time, :status
 
     def initialize(options)
         @id = options['id'].to_i if options['id']
@@ -12,8 +12,8 @@ class SpartaClass
         @capacity = options['capacity'].to_i
         @trainer_name = options['trainer_name']
         @room = options['room']
-        @day = options['day']
-        @time = options['time']
+        @date = options['date']
+        @time = options['time'][0..4]
         @status = options['status']
     end
 
@@ -49,7 +49,7 @@ class SpartaClass
         capacity,
         trainer_name,
         room,
-        day,
+        date,
         time,
         status) 
         VALUES 
@@ -61,7 +61,7 @@ class SpartaClass
         $6,
         $7) 
         RETURNING id;"
-        values = [@class_name, @capacity, @trainer_name, @room, @day, @time, @status]
+        values = [@class_name, @capacity, @trainer_name, @room, @date, @time, @status]
         @id = SqlRunner.run(sql, values)[0]['id'].to_i
     end
 
@@ -71,11 +71,11 @@ class SpartaClass
         capacity = $2,  
         trainer_name = $3,
         room = $4,
-        day = $5,
+        date = $5,
         time = $6,
         status = $7
         WHERE id = $8;"
-        values = [@class_name, @capacity, @trainer_name, @room, @day, @time, @status, @id]
+        values = [@class_name, @capacity, @trainer_name, @room, @date, @time, @status, @id]
         SqlRunner.run(sql, values)
     end
 
