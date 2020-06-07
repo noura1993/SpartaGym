@@ -58,7 +58,7 @@ sparta_class2 = SpartaClass.new({
     'trainer_name' => 'Nancy',
     'room' => 'X30',
     'date_time' => '2020-06-15 18:00', 
-    'status' => 'Deactivated'
+    'status' => 'Active'
 })
 sparta_class2.save()
 
@@ -75,7 +75,7 @@ sparta_class3.save()
 
 
 booking1 = Booking.new({ 
-    'member_id' => member3.id,
+    'member_id' => member1.id,
     'sparta_class_id' => sparta_class1.id
 })
 booking1.save()
@@ -86,13 +86,6 @@ booking2 = Booking.new({
 })
 booking2.save()
 
-booking3 = Booking.new({ 
-    'member_id' => member2.id,
-    'sparta_class_id' => sparta_class2.id
-})
-booking3.save()
-
-sparta_class1.book_class(member3)
 binding.pry
 
 nil

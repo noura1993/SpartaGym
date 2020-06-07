@@ -18,13 +18,6 @@ class SpartaClass
     end
 
     def book_class(member)
-        return "Sorry, class is deactivated" if @status == 'Deactivated'
-        return "Sorry, member is deactivated" if member.status == 'Deactivated'
-        return "Sorry, class is full" if @capacity == 0 
-        time = @date_time[11..15]
-        if(member.membership == 'Standard' && time >= '20:00')
-            return "This time is only for Premium membership"
-        end
         @capacity -= 1
         update()
         new_booking = Booking.new({'member_id' => member.id, 'sparta_class_id' => @id})
@@ -92,6 +85,15 @@ class SpartaClass
 
     def self.map(sparta_class_data)
         return sparta_class_data.map{ |sparta_class| SpartaClass.new(sparta_class) }
+    end
+
+    def self.bookable_classes(member)
+        return [] if member.status == "Deactivated"
+        member_classes = member.sparta_classes().map{ |sparta_class| sparta_class.id }
+        upcoming_classes = SpartaClass.upcoming_classes()
+        return upcoming_classes.select{ |upcoming_class| upcoming_class.status == "Active" && upcoming_class.capacity > 0 }
+                               .select{ |upcoming_class| member.membership == "Premium" || upcoming_class.date_time[11..15] < '20:00' }
+                               .select{ |upcoming_class| !member_classes.include? (upcoming_class.id) }
     end
 
     def self.upcoming_classes()
