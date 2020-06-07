@@ -1,0 +1,51 @@
+<div class="center">
+    <div class="container">
+        <form method="post" action="/members">
+            <h2>Add Member</h2>
+            <label for="title-selection">Title:</label>
+            <select name="title" id="title-selection">
+                <option value="Mr">Mr</option>
+                <option value="Ms">Ms</option>
+                <option value="Mrs">Mrs</option>
+            </select>   
+
+            <label for="status-selection">Status:</label>
+            <select name="status" id="status-selection">
+                <option value="Active">Active</option>
+                <option value="Deactivated">Deactivated</option>
+            </select>
+
+            <label for="membership-selection">Membership:</label>
+            <select name="membership" id="membership-selection">
+                <option value="Premium">Premium</option>
+                <option value="Standard">Standard</option>
+            </select>
+            <br><br>
+
+            
+
+            <label for="first-name-field">First Name:</label>
+            <br>
+            <input class="text" type="text" name="first_name" placeholder="Enter your first name.." id="first-name-field"/>
+            <br>
+
+            <label for="surname-field">Surname:</label>
+            <br>
+            <input class="text" type="text" name="surname" placeholder="Enter your surname.." id="surname-field"/>
+            <br>
+
+            <label for="mobile-field">Mobile:</label>
+            <br>
+            <input class="text" type="text" name="mobile" placeholder="Enter your mobile number.." id="mobile-field"/>
+            <br>
+
+            <label for="email-field">Email:</label>
+            <br>
+            <input class="text" type="text" name="email" placeholder="@example.com.." id="email-field"/>
+            <br>
+        
+            <input class="submit" type="submit" value="Save">
+
+        </form>
+    </div>
+</div>
