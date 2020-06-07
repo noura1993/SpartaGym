@@ -1,0 +1,27 @@
+<h1>Members</h1>
+
+<table class="members">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Status</th>
+    <th>Membership</th>
+    <th>Actions</th>
+  </tr>
+  <% for member in @members %>
+  <tr>
+    <td><%= member.format_name %></td>
+    <td><%= member.email %></td>
+    <td><%= member.mobile %></td>
+    <td><%= member.status %></td>
+    <td><%= member.membership %></td>
+    <td>
+        <div class="center">
+            <input class="action" type='Book' value="Book">
+            <input class="action" type='Edit' value="Edit">
+        </div>
+    </td>
+  </tr>
+  <% end %>
+</table>
