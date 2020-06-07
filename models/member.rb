@@ -3,7 +3,7 @@ require_relative('./sparta_class')
 class Member
 
     attr_reader :id
-    attr_accessor :title, :first_name, :surname, :mobile_number, :email_address, :status, :membership
+    attr_accessor :title, :first_name, :surname, :mobile, :email, :status, :membership
 
     def initialize(options)
         @id = options['id'].to_i if options['id']
@@ -15,6 +15,12 @@ class Member
         @status = options['status']
         @membership = options['membership']
     end
+
+
+    def format_name
+        return "#{@title.capitalize}. #{@first_name.capitalize} #{@surname.capitalize}"
+    end
+
 
     def sparta_classes()
         sql = "SELECT sparta_classes.* 
