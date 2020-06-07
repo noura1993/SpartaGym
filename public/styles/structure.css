@@ -9,24 +9,24 @@ h1 {
 }
 
 .add {
-  cursor: pointer;
-  width: 6rem;
-  padding: .5rem;
-  border-radius: 54px;
-  background-color: #1d1616;
-  text-align: center;
-  font-size: .80rem;
-  transition: background-color .25s;
-  border: 0px;
-  color: rgb(235, 153, 47);
-  font-weight: 500;
-  width: 12em;
-  margin-bottom: 1em;
-  opacity: 0.8;
+    cursor: pointer;
+    width: 6rem;
+    padding: .5rem;
+    border-radius: 54px;
+    background-color: #1d1616;
+    text-align: center;
+    font-size: .80rem;
+    transition: background-color .25s;
+    border: 0px;
+    color: rgb(235, 153, 47);
+    font-weight: 500;
+    width: 12em;
+    margin-bottom: 1em;
+    opacity: 0.8;
 }
 
 .add:hover {
-  background-color:  #0a0a0a;
+    background-color:  #0a0a0a;
 }
 
 .action {
@@ -41,12 +41,12 @@ h1 {
     border: 0px;
     color: #fff;
     font-weight: 500;
-  }
+}
 
-  .action:hover {
+.action:hover {
     background-color:  rgb(235, 153, 47);
   }
 
-  .center {
+.center {
     text-align: center;
-  }
+}
