@@ -29,4 +29,10 @@ post('/sparta_classes/:id') do
     sparta_class.update
     redirect to "/sparta_classes"
 end
+
+get('/sparta_classes/:id/class_members') do
+    @sparta_class = SpartaClass.find(params['id'])
+    @class_members = @sparta_class.members()
+    erb(:'sparta_classes/class_members')
+end
   

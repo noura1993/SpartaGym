@@ -12,7 +12,9 @@
   .tables-layout tr:nth-child(odd){background-color: #333;}
   .tables-layout tr:nth-child(even){background-color: #555353;}
 
-  .tables-layout tr:hover {background-color: #1d1616;}
+  .tables-layout tr:hover {
+    background-color: #1d1616;
+  }
   
   th {
     padding-top: 12px;

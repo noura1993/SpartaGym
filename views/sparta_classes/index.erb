@@ -24,7 +24,7 @@
     <td><%= sparta_class.status %></td>
     <td>
         <div class="center">
-          <form action="" method="get">
+          <form action="/sparta_classes/<%= sparta_class.id %>/class_members" method="get">
               <input class="action" type='submit' value="Members">
           </form>
           <form action="/sparta_classes/<%= sparta_class.id %>/edit" method="get">
