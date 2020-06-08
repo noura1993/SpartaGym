@@ -21,7 +21,7 @@
     <td><%= sparta_class.status %></td>
     <td>
         <div class="center">
-          <form action="" method="get">
+          <form action="/members/<%= sparta_class.id %>/<%= @member.id %>/remove" method="post">
               <input class="action" type='submit' value="Remove">
           </form>  
         </div>

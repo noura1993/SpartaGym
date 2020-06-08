@@ -50,3 +50,9 @@ get("/members/:id/classes") do
     erb(:"members/member_classes")
 end
   
+post('/members/:class_id/:member_id/remove') do
+    @sparta_class = SpartaClass.find(params['class_id'])
+    @member = Member.find(params['member_id'])
+    @sparta_class.remove_member(@member)
+    redirect to("/members/#{@member.id}/classes")
+end
