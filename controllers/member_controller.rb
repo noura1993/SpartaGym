@@ -43,4 +43,10 @@ post('/members/:class_id/:member_id/book') do
     sparta_class.book_class(member)
     redirect to "/members"
 end
+
+get("/members/:id/classes") do
+    @member = Member.find(params['id'])
+    @sparta_classes = @member.sparta_classes()
+    erb(:"members/member_classes")
+end
   

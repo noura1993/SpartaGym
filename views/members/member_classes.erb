@@ -1,0 +1,31 @@
+<h1>Member Classes</h1>
+<div class="headline">
+</div>
+<table class="tables-layout">
+  <tr>
+    <th>Class Name</th>
+    <th>Capacity</th>
+    <th>Trainer Name</th>
+    <th>Room</th>
+    <th>Date & Time</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  <% for sparta_class in @sparta_classes %>
+  <tr>
+    <td><%= sparta_class.class_name %></td>
+    <td><%= sparta_class.capacity %></td>
+    <td><%= sparta_class.trainer_name %></td>
+    <td><%= sparta_class.room %></td>
+    <td><%= sparta_class.date_time[0..10] + "/" + sparta_class.date_time[10..15] %></td>
+    <td><%= sparta_class.status %></td>
+    <td>
+        <div class="center">
+          <form action="" method="get">
+              <input class="action" type='submit' value="Remove">
+          </form>  
+        </div>
+    </td>
+  </tr>
+  <% end %>
+</table>
