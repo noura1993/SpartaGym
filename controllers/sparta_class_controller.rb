@@ -18,3 +18,15 @@ post('/sparta_classes') do
     sparta_class.save
     redirect to("/sparta_classes")
 end
+
+get('/sparta_classes/:id/edit') do
+    @sparta_class = SpartaClass.find(params['id'])
+    erb(:"sparta_classes/edit")
+end
+  
+post('/sparta_classes/:id') do
+    sparta_class = SpartaClass.new(params)
+    sparta_class.update
+    redirect to "/sparta_classes"
+end
+  

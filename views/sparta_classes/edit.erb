@@ -1,0 +1,42 @@
+<div class="center">
+    <div class="container">
+        <form method="post" action="/sparta_classes/<%= @sparta_class.id %>">
+            <h2>EditClass</h2>
+
+            <label for="status-selection">Status:</label>
+            <select name="status" id="status-selection">
+                <option value="Active" <%= "selected" if @sparta_class.status == "Active" %> >Active</option>
+                <option value="Deactivated" <%= "selected" if @sparta_class.status == "Deactivated" %> >Deactivated</option>
+            </select>
+            <br><br>
+
+            <label for="class-name-field">Class Name:</label>
+            <br>
+            <input class="text" type="text" name="class_name" value="<%= @sparta_class.class_name %>" id="class-name-field" required/>
+            <br>
+
+            <label for="capacity-field">Capacity:</label>
+            <br>
+            <input class="text" type="text" name="capacity" value="<%= @sparta_class.capacity %>" id="capacity-field" required/>
+            <br>
+
+            <label for="trainer-name-field">Trainer Name:</label>
+            <br>
+            <input class="text" type="text" name="trainer_name" value="<%= @sparta_class.trainer_name %>" id="trainer-name-field" required/>
+            <br>
+
+            <label for="room-field">Room:</label>
+            <br>
+            <input class="text" type="text" name="room" value="<%= @sparta_class.room %>" id="room-field" required/>
+            <br>
+
+            <label for="date-and-time-field">Date & Time:</label>
+            <br>
+            <input class="text" type="text" name="date_time" value="<%= @sparta_class.date_time %>" id="date-time-field" required/>
+            <br>
+
+            <input class="submit" type="submit" value="Save">
+
+        </form>
+    </div>
+</div>
