@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/member.rb' )
+require_relative( '../models/sparta_classes.rb' )
 also_reload( '../models/*' )
 
 
@@ -29,4 +30,3 @@ post('/members/:id') do
     member.update
     redirect to "/members"
 end
-  

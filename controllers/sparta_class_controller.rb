@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/sparta_class.rb' )
+require_relative( '../models/member.rb' )
 also_reload( '../models/*' )
 
 
@@ -36,3 +37,11 @@ get('/sparta_classes/:id/class_members') do
     erb(:'sparta_classes/class_members')
 end
   
+post('/sparta_classes/:class_id/:member_id/remove') do
+    @sparta_class = SpartaClass.find(params['class_id'])
+    @member = Member.find(params['member_id'])
+    @sparta_class.remove_member(@member)
+    redirect to("/sparta_classes")
+end
+
+

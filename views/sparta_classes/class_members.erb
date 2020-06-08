@@ -1,9 +1,5 @@
 <h1>Class Members</h1>
-<div class="headline">
-    <form method="get" action="/sparta_classes/class_members">
-        <input class="back" type='submit' value="Back">
-    </form>
-</div>
+
 <table class="tables-layout">
   <tr>
     <th>Name</th>
@@ -22,7 +18,7 @@
     <td><%= class_member.membership %></td>
     <td>
         <div class="center">
-          <form action="" method="get">
+          <form action="/sparta_classes/<%= @sparta_class.id %>/<%= class_member.id  %>/remove" method="post">
               <input class="action" type='submit' value="Remove">
           </form>   
         </div>
