@@ -26,22 +26,22 @@
 
             <label for="first-name-field">First Name:</label>
             <br>
-            <input class="text" type="text" name="first_name" value="<%= @member.first_name %>" id="first-name-field"/>
+            <input class="text" type="text" name="first_name" value="<%= @member.first_name %>" id="first-name-field" required/>
             <br>
 
             <label for="surname-field">Surname:</label>
             <br>
-            <input class="text" type="text" name="surname" value="<%= @member.surname %>" id="surname-field"/>
+            <input class="text" type="text" name="surname" value="<%= @member.surname %>" id="surname-field" required/>
             <br>
 
             <label for="mobile-field">Mobile:</label>
             <br>
-            <input class="text" type="text" name="mobile" value="<%= @member.mobile %>" id="mobile-field"/>
+            <input class="text" type="text" name="mobile" value="<%= @member.mobile %>" id="mobile-field" required/>
             <br>
 
             <label for="email-field">Email:</label>
             <br>
-            <input class="text" type="text" name="email" value="<%= @member.email %>" id="email-field"/>
+            <input class="text" type="email" name="email" value="<%= @member.email %>" id="email-field" required/>
             <br>
         
             <input class="submit" type="submit" value="Save">
