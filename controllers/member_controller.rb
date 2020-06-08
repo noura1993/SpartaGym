@@ -13,18 +13,18 @@ get('/members/new') do
     erb(:"members/new")
 end
 
-post '/members' do
+post('/members') do
     member = Member.new(params)
     member.save
     redirect to("/members")
 end
 
-get '/members/:id/edit' do
+get('/members/:id/edit') do
     @member = Member.find(params['id'])
     erb(:"members/edit")
 end
   
-post '/members/:id' do
+post('/members/:id') do
     member = Member.new(params)
     member.update
     redirect to "/members"

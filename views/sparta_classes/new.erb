@@ -1,0 +1,42 @@
+<div class="center">
+    <div class="container">
+        <form method="post" action="/sparta_classes">
+            <h2>Add Class</h2>
+
+            <label for="status-selection">Status:</label>
+            <select name="status" id="status-selection">
+                <option value="Active">Active</option>
+                <option value="Deactivated">Deactivated</option>
+            </select>
+            <br><br>
+
+            <label for="class-name-field">Class Name:</label>
+            <br>
+            <input class="text" type="text" name="class_name" placeholder="Enter class name.." id="class-name-field" required/>
+            <br>
+
+            <label for="capacity-field">Capacity:</label>
+            <br>
+            <input class="text" type="text" name="capacity" placeholder="Enter maximum capacity.." id="capacity-field" required/>
+            <br>
+
+            <label for="trainer-name-field">Trainer Name:</label>
+            <br>
+            <input class="text" type="text" name="trainer_name" placeholder="Enter trainer name.." id="trainer-name-field" required/>
+            <br>
+
+            <label for="room-field">Room:</label>
+            <br>
+            <input class="text" type="text" name="room" placeholder="Enter room number.." id="room-field" required/>
+            <br>
+
+            <label for="date-and-time-field">Date & Time:</label>
+            <br>
+            <input class="text" type="text" name="date_time" placeholder="YYYY-MM-DD HH-MM.." id="date-time-field" required/>
+            <br>
+
+            <input class="submit" type="submit" value="Save">
+
+        </form>
+    </div>
+</div>
