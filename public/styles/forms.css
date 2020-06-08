@@ -1,6 +1,7 @@
 form {
     color:  rgb(235, 153, 47);
-    font-size: 18px;
+    font-size: 10px;
+    display: inline;
   }
 
 .container {

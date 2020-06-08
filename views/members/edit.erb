@@ -1,0 +1,51 @@
+<div class="center">
+    <div class="container">
+        <form method="post" action="/members/<%= @member.id %>">
+            <h2>Edit Member</h2>
+            <label for="title-selection">Title:</label>
+            <select name="title" id="title-selection">
+                <option value="Mr" <%= "selected" if @member.title == "Mr" %> >Mr</option>
+                <option value="Ms" <%= "selected" if @member.title == "Ms" %> >Ms</option>
+                <option value="Mrs" <%= "selected" if @member.title == "Mrs" %> >Mrs</option>
+            </select>   
+
+            <label for="status-selection">Status:</label>
+            <select name="status" id="status-selection">
+                <option value="Active" <%= "selected" if @member.status == "Active" %> >Active</option>
+                <option value="Deactivated" <%= "selected" if @member.status == "Deactivated" %>>Deactivated</option>
+            </select>
+
+            <label for="membership-selection">Membership:</label>
+            <select name="membership" id="membership-selection">
+                <option value="Premium" <%= "selected" if @member.membership == "Premium" %> >Premium</option>
+                <option value="Standard" <%= "selected" if @member.membership == "Standard" %> >Standard</option>
+            </select>
+            <br><br>
+
+            
+
+            <label for="first-name-field">First Name:</label>
+            <br>
+            <input class="text" type="text" name="first_name" value="<%= @member.first_name %>" id="first-name-field"/>
+            <br>
+
+            <label for="surname-field">Surname:</label>
+            <br>
+            <input class="text" type="text" name="surname" value="<%= @member.surname %>" id="surname-field"/>
+            <br>
+
+            <label for="mobile-field">Mobile:</label>
+            <br>
+            <input class="text" type="text" name="mobile" value="<%= @member.mobile %>" id="mobile-field"/>
+            <br>
+
+            <label for="email-field">Email:</label>
+            <br>
+            <input class="text" type="text" name="email" value="<%= @member.email %>" id="email-field"/>
+            <br>
+        
+            <input class="submit" type="submit" value="Save">
+
+        </form>
+    </div>
+</div>

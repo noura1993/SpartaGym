@@ -22,8 +22,12 @@
     <td><%= member.membership %></td>
     <td>
         <div class="center">
-            <input class="action" type='Book' value="Book">
-            <input class="action" type='Edit' value="Edit">
+          <form action="" method="get">
+              <input class="action" type='submit' value="Book">
+          </form>
+          <form action="/members/<%= member.id %>/edit" method="get">
+              <input class="action" type='submit' value="Edit">
+          </form>   
         </div>
     </td>
   </tr>
