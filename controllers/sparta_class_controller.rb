@@ -41,7 +41,7 @@ post('/sparta_classes/:class_id/:member_id/remove') do
     @sparta_class = SpartaClass.find(params['class_id'])
     @member = Member.find(params['member_id'])
     @sparta_class.remove_member(@member)
-    redirect to("/sparta_classes")
+    redirect to("/sparta_classes/#{@sparta_class.id}/class_members")
 end
 
 
