@@ -22,7 +22,7 @@
     <td><%= member.membership %></td>
     <td>
         <div class="center">
-          <form action="" method="get">
+          <form action="/members/<%= member.id %>/book_class" method="get">
               <input class="action" type='submit' value="Book">
           </form>
           <form action="/members/<%= member.id %>/edit" method="get">

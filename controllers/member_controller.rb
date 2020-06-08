@@ -1,7 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/member.rb' )
-require_relative( '../models/sparta_classes.rb' )
+require_relative( '../models/sparta_class.rb' )
 also_reload( '../models/*' )
 
 
@@ -30,3 +30,17 @@ post('/members/:id') do
     member.update
     redirect to "/members"
 end
+
+get('/members/:id/book_class') do
+    @member = Member.find(params['id'])
+    @sparta_classes = SpartaClass.bookable_classes(@member)
+    erb(:"members/book_class")
+end
+
+post('/members/:class_id/:member_id/book') do 
+    sparta_class = SpartaClass.find(params['class_id'])
+    member = Member.find(params['member_id'])
+    sparta_class.book_class(member)
+    redirect to "/members"
+end
+  

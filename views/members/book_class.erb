@@ -1,0 +1,34 @@
+<h1>Bookable Classes</h1>
+<div class="headline">
+    <form action="/sparta_classes/new" method="get">
+        <input class="add" type='submit' value="Add Class">
+    </form>
+</div>
+<table class="tables-layout">
+  <tr>
+    <th>Class Name</th>
+    <th>Capacity</th>
+    <th>Trainer Name</th>
+    <th>Room</th>
+    <th>Date & Time</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  <% for sparta_class in @sparta_classes %>
+  <tr>
+    <td><%= sparta_class.class_name %></td>
+    <td><%= sparta_class.capacity %></td>
+    <td><%= sparta_class.trainer_name %></td>
+    <td><%= sparta_class.room %></td>
+    <td><%= sparta_class.date_time[0..10] + "/" + sparta_class.date_time[10..15] %></td>
+    <td><%= sparta_class.status %></td>
+    <td>
+        <div class="center">
+          <form action="/members/<%= sparta_class.id %>/<%= @member.id %>/book" method="post">
+              <input class="action" type='submit' value="Add Member">
+          </form>
+        </div>
+    </td>
+  </tr>
+  <% end %>
+</table>
