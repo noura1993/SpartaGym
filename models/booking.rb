@@ -36,27 +36,4 @@ class Booking
         SqlRunner.run(sql, values)
     end
 
-    def self.find(id)
-        sql = 'SELECT * FROM bookings WHERE id = $1;'
-        values = [id]
-        booking_record = SqlRunner.run(sql, values).first()
-        return nil if booking_record == nil
-        return Booking.new(booking_record)
-    end
-
-    def self.map(booking_data)
-        return booking_data.map{ |booking| Booking.new(booking) }
-    end
-
-    def self.all()
-        sql = "SELECT * FROM bookings;"
-        bookings = SqlRunner.run(sql)
-        return Booking.map(bookings)
-    end
-
-    def self.delete_all()
-        sql = "DELETE FROM bookings;"
-        SqlRunner.run(sql)
-    end
-
 end
