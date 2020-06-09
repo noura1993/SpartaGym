@@ -6,7 +6,7 @@ also_reload( '../models/*' )
 
 
 get('/members') do
-    @members = Member.all()
+    @members = Member.search(params['first_name'], params['surname'], params['mobile'])
     erb(:"members/index")
 end
 
