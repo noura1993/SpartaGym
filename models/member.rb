@@ -16,11 +16,9 @@ class Member
         @membership = options['membership']
     end
 
-
-    def format_name
+    def format_name()
         return "#{@title.capitalize}. #{@first_name.capitalize} #{@surname.capitalize}"
     end
-
 
     def sparta_classes()
         sql = "SELECT sparta_classes.* 
@@ -87,17 +85,5 @@ class Member
     def self.map(member_data)
         return member_data.map{ |member| Member.new(member) }
     end
-
-    def self.all()
-        sql = "SELECT * FROM members;"
-        members = SqlRunner.run(sql)
-        return Member.map(members)
-    end
-
-    def self.delete_all()
-        sql = "DELETE FROM members;"
-        SqlRunner.run(sql)
-    end
-
 
 end
