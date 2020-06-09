@@ -23,7 +23,6 @@ class SpartaClass
         update()
         new_booking = Booking.new({'member_id' => member.id, 'sparta_class_id' => @id})
         new_booking.save()
-        return "Booking class done"
     end
 
     def remove_member(member)
@@ -105,11 +104,6 @@ class SpartaClass
         values = [today]
         sparta_classes = SqlRunner.run(sql, values)
         return SpartaClass.map(sparta_classes)
-    end
-
-    def self.delete_all()
-        sql = "DELETE FROM sparta_classes;"
-        SqlRunner.run(sql)
     end
 
 end
