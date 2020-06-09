@@ -1,8 +1,22 @@
 <h1>Members</h1>
+<div class="search">
+<form action="/members" method="get">
+    <label for="first-name-field">First Name:</label>
+    <input  class="search-text" type="text" name="first_name" placeholder="Search.." id="first-name-field"/>
+
+    <label for="surname-field">Surname:</label>
+    <input  class="search-text" type="text" name="surname" placeholder="Search.." id="surname-field"/>
+
+    <label for="mobile-field">Mobile:</label>
+    <input class="search-text" type="text" name="mobile" placeholder="Search.." id="mobile-field"/>
+
+    <input class="add" type='submit' value="Search">
+  </form>
+</div>
 <div class="headline">
-    <form action="/members/new" method="get">
-        <input class="add" type='submit' value="Add Member">
-    </form>
+  <form action="/members/new" method="get">
+    <input class="add" type='submit' value="Add Member">
+  </form>
 </div>
 <table class="tables-layout">
   <tr>
