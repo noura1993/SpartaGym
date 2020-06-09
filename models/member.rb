@@ -68,7 +68,7 @@ class Member
     end
 
     def self.search(first_name = '', surname = '', mobile = '')
-        sql = 'SELECT * FROM members WHERE first_name LIKE $1 AND surname LIKE $2 AND mobile LIKE $3;'
+        sql = 'SELECT * FROM members WHERE UPPER(first_name) LIKE UPPER($1) AND UPPER(surname) LIKE UPPER($2) AND UPPER(mobile) LIKE UPPER($3);'
         values = ["%#{first_name}%", "%#{surname}%", "%#{mobile}%"]
         members_records = SqlRunner.run(sql, values)
         return Member.map(members_records)
