@@ -41,7 +41,7 @@ post('/members/:class_id/:member_id/book') do
     sparta_class = SpartaClass.find(params['class_id'])
     member = Member.find(params['member_id'])
     sparta_class.book_class(member)
-    redirect to "/members"
+    redirect to "/members/#{member.id}/classes"
 end
 
 get("/members/:id/classes") do
