@@ -3,10 +3,6 @@ require_relative('../models/member')
 require_relative('../models/sparta_class')
 require_relative('../models/booking')
 
-Booking.delete_all()
-Member.delete_all()
-SpartaClass.delete_all()
-
 member1 = Member.new({ 
     'title' => 'Mr',
     'first_name' => 'Robert',
