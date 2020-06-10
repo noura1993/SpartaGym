@@ -9,10 +9,20 @@
         <link rel="stylesheet" type="text/css" href="/styles/structure.css">
     </head>
     <body>
+        <div class="logo">
+            <a href="/">SpartaGym</a>
+        </div>
         <nav id="navbar">
-            <div class="nav-inner-container">
-                <a href="/members">Members</a>
-                <a href="/sparta_classes">Classes</a>
+            <div class="top-nav">
+                <div class="topnav-left">
+                    <a href="/members">Members</a>
+                </div>
+                <div class="topnav-center">
+                    <img class="header-img" src="/images/dumbbells.png" alt="orange dumbbells"/>
+                </div>
+                <div class="topnav-right">
+                    <a href="/sparta_classes">Classes</a>
+                </div>
             </div>
         </nav>
         <%= yield %>

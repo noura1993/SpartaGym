@@ -1,9 +1,10 @@
 h1 {
     text-align: center;
-    color:  #1d1616;;
+    color:  #1d1616;
     opacity: 0.8;
+    margin-top: 4%;
   }
- 
+
 .headline {
     float: right;
     display: inline;
