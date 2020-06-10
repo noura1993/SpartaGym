@@ -1,4 +1,18 @@
 <h1>Upcoming Classes</h1>
+<div class="search">
+<form action="/sparta_classes" method="get">
+    <label for="class-name-field">Class Name:</label>
+    <input  class="search-text" type="text" name="class_name" placeholder="Search.." id="class-name-field"/>
+
+    <label for="trainer-name-field">Trainer Name:</label>
+    <input  class="search-text" type="text" name="trainer_name" placeholder="Search.." id="trainer-name-field"/>
+
+    <label for="date-time-field">Date&Time:</label>
+    <input class="search-text" type="text" name="date_time" placeholder="Search.." id="date-time-field"/>
+
+    <input class="add" type='submit' value="Search">
+  </form>
+</div>
 <div class="headline">
     <form action="/sparta_classes/new" method="get">
         <input class="add" type='submit' value="Add Class">

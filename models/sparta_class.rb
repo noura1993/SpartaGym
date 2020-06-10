@@ -108,7 +108,7 @@ class SpartaClass
 
 
     def self.search(class_name = '', trainer_name = '', date_time = '')
-        sql = 'SELECT * FROM sparta_classes WHERE UPPER(class_name) LIKE UPPER($1) AND UPPER(trainer_name) LIKE UPPER($2) AND UPPER(date_time) LIKE UPPER($3);'
+        sql = 'SELECT * FROM sparta_classes WHERE UPPER(class_name) LIKE UPPER($1) AND UPPER(trainer_name) LIKE UPPER($2) AND date_time::text LIKE $3;'
         values = ["%#{class_name}%", "%#{trainer_name}%", "%#{date_time}%"]
         sparta_classes_records = SqlRunner.run(sql, values)
         return SpartaClass.map(sparta_classes_records)
