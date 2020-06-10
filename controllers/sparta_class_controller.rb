@@ -6,7 +6,7 @@ also_reload( '../models/*' )
 
 
 get('/sparta_classes') do
-    @sparta_classes = SpartaClass.upcoming_classes()
+    @sparta_classes = SpartaClass.search(params['class_name'], params['trainer_name'], params['date_time'])
     erb(:"sparta_classes/index")
 end
 
