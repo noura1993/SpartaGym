@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./sparta_class')
+
 class Member
 
     attr_reader :id

@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  
